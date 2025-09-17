@@ -1,0 +1,53 @@
+route_id,route_short_name,route_long_name,route_color,normalized_route_long_name
+9280,1,CUBA - FARO DO ALENTEJO,,Cuba - Faro do Alentejo
+9289,10,ALVITO - BEJA,,Alvito - Beja
+9290,11,OURIQUE ESTAÇAO - CASTRO VERDE,,Ourique Estaçao - Castro Verde
+9291,12,CUBA - PEDROGÃO POR MARMELAR,,Cuba - Pedrogão via Marmelar
+9292,13,ALJUSTREL - ALVALADE,,Aljustrel - Alvalade
+9293,14,ALMODOVAR - S.BARNABE - MALHAO - SOEIRAS,,Almodovar - S.barnabe - Malhao - Soeiras
+9294,15,AMARELEJA - BEJA,,Amareleja - Beja
+9295,16,BALEIZAO - BEJA,,Baleizao - Beja
+9296,17,BEJA - FERREIRA DO ALENTEJO,,Beja - Ferreira do Alentejo
+9297,18,SERPA - VILA VERDE FICALHO,,Serpa - Vila Verde Ficalho
+9298,19,BEJA - JUNGEIROS,,Beja - Jungeiros
+9281,2,BEJA - VILA DE FRADES,,Beja - Vila de Frades
+9299,20,ALJUSTREL - MESSEJANA,,Aljustrel - Messejana
+9300,21,BEJA - MOMBEJA P/ TRIGACHES,,Beja - Mombeja via Trigaches
+9301,22,BEJA - QUINTOS,,Beja - Quintos
+9302,23,BEJA - SALVADA,,Beja - Salvada
+9303,24,SERPA - VALE VARGO,,Serpa - Vale Vargo
+9304,25,ALVARES - MERTOLA,,Alvares - Mertola
+9305,26,MERTOLA - S.PEDRO SOLIS P/NAMORADOS,,Mertola - S.pedro Solis via Namorados
+9306,27,PIAS - VALE VARGO,,Pias - Vale Vargo
+9307,28,SERPA - SERPA P/ V.N. S.BENTO,,Serpa - Serpa via V.n. S.bento
+9308,29,ALMODOVAR - ALMODOVAR P/SRª.GRAÇA PADROES,,Almodovar - Almodovar via Srª.graça Padroes
+9282,3,ALFUNDAO - FERREIRA,,Alfundao - Ferreira
+9309,30,ALMODOVAR - FELIZES P/DOGUENO,,Almodovar - Felizes via Dogueno
+9310,31,ALMODOVAR - GOMES AIRES,,Almodovar - Gomes Aires
+9311,32,ALMODOVAR - A. DOS NEVES - SRA GRAÇA PADROES - CAST. VERDE,,Almodovar - A. Dos Neves - Sra Graça Padroes - Cast. Verde
+9312,33,BEJA - CORTE PINTO,,Beja - Corte Pinto
+9313,34,CASTRO VERDE - ALJUSTREL,,Castro Verde - Aljustrel
+9314,35,BEJA - MINA JULIANA,,Beja - Mina Juliana
+9315,36,BEJA - GUEDELHAS,,Beja - Guedelhas
+9316,37,BEJA - PRAIA ZAMBUJEIRA,,Beja - Praia Zambujeira
+9317,38,CASTRO VERDE - FIGUEIRINHA,,Castro Verde - Figueirinha
+9318,39,ALJUSTREL - FERREIRA DO ALENTEJO,,Aljustrel - Ferreira do Alentejo
+9283,4,CERCAL ALENTEJO - OURIQUE,,Cercal Alentejo - Ourique
+9319,40,MERTOLA - SANTANA CAMBAS,,Mertola - Santana Cambas
+9320,41,MERTOLA - MOSTEIRO,,Mertola - Mosteiro
+9321,42,MINA S. DOMINGOS - SERPA,,Mina S. Domingos - Serpa
+9322,43,FERREIRA DO ALENTEJO - ODIVELAS,,Ferreira do Alentejo - Odivelas
+9323,44,BEJA - EVORA,,Beja - Évora
+9324,45,BARRANCOS - MOURA,,Barrancos - Moura
+9325,46,FICALHO - MOURA,,Ficalho - Moura
+9326,47,AMARELEJA - BARRANCOS,,Amareleja - Barrancos
+9327,48,SANTO ALEIXO - AMARELEJA,,Santo Aleixo - Amareleja
+9328,49,SANTANA DA SERRA - OURIQUE,,Santana da Serra - Ourique
+9284,5,BEJA - SELMES,,Beja - Selmes
+9329,50,OURIQUE - PANOIAS P/ ALCARIAS,,Ourique - Panoias via Alcarias
+9330,53,CASTRO VERDE - S. MARCOS ATABOEIRA - SALTO,,Castro Verde - S. Marcos Ataboeira - Salto
+9331,54,MERTOLA - MONTE FIALHO P/ALAMO,,Mertola - Monte Fialho via Alamo
+9285,6,CUBA - EVORA,,Cuba - Évora
+9286,7,CASTRO VERDE - PIÇARRAS,,Castro Verde - Piçarras
+9287,8,SELMES - VIDIGUEIRA,,Selmes - Vidigueira
+9288,9,FERREIRA ALENTEJO - SANTA MARGARIDA DO SADO,,Ferreira Alentejo - Santa Margarida do Sado

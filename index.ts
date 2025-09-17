@@ -28,11 +28,11 @@ const taaLines = await taaClient.getLines();
 const taaStops = await taaClient.getAllStops();
 
 fs.writeFileSync(
-    `out/${taaClient.providerName}/routes.txt`,
+    `gtfs-out/${taaClient.providerName}/routes.txt`,
     optLinesToGtfsRoutes(taaLines)
 );
 fs.writeFileSync(
-    `out/${taaClient.providerName}/stops.txt`,
+    `gtfs-out/${taaClient.providerName}/stops.txt`,
     optStopsToGtfsStops(taaStops)
 );
 
@@ -41,11 +41,11 @@ const tpacLines = await tpacClient.getLines();
 const tpacStops = await tpacClient.getAllStops();
 
 fs.writeFileSync(
-    `out/${tpacClient.providerName}/routes.txt`,
+    `gtfs-out/${tpacClient.providerName}/routes.txt`,
     optLinesToGtfsRoutes(tpacLines)
 );
 fs.writeFileSync(
-    `out/${tpacClient.providerName}/stops.txt`,
+    `gtfs-out/${tpacClient.providerName}/stops.txt`,
     optStopsToGtfsStops(tpacStops)
 );
 
@@ -54,11 +54,11 @@ const trimbalLines = await trimbalClient.getLines();
 const trimbalStops = await trimbalClient.getAllStops();
 
 fs.writeFileSync(
-    `out/${trimbalClient.providerName}/routes.txt`,
+    `gtfs-out/${trimbalClient.providerName}/routes.txt`,
     optLinesToGtfsRoutes(trimbalLines)
 );
 fs.writeFileSync(
-    `out/${trimbalClient.providerName}/stops.txt`,
+    `gtfs-out/${trimbalClient.providerName}/stops.txt`,
     optStopsToGtfsStops(trimbalStops)
 );
 
@@ -67,10 +67,10 @@ const talLines = await talClient.getLines();
 const talStops = await talClient.getAllStops();
 
 fs.writeFileSync(
-    `out/${talClient.providerName}/routes.txt`,
+    `gtfs-out/${talClient.providerName}/routes.txt`,
     optLinesToGtfsRoutes(talLines)
 );
 fs.writeFileSync(
-    `out/${talClient.providerName}/stops.txt`,
+    `gtfs-out/${talClient.providerName}/stops.txt`,
     optStopsToGtfsStops(talStops)
 );

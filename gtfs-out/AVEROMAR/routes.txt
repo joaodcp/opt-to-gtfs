@@ -1,0 +1,61 @@
+route_id,route_short_name,route_long_name,route_color,normalized_route_long_name
+9332,8023,LAGOA ST. ANDRE - SANTIAGO CACEM,,Lagoa St. Andre - Santiago Cacem
+9333,8028,ALVALADE - FOROS LOCARIO,,Alvalade - Foros Locario
+9334,8032,BEJA - SINES,,Beja - Sines
+9335,8057,GARVAO - ODEMIRA,,Garvao - Odemira
+9336,8065,LAGOA ST. ANDRE - SANTIAGO P/ST.ANDRE,,Lagoa St. Andre - Santiago via St.andre
+9337,8074,MONTE ESTRADA - ODEMIRA,,Monte Estrada - Odemira
+9338,8077,CERCAL ALENTEJO - SINES (QTª.PASSARINHOS),,Cercal Alentejo - Sines (qtª.passarinhos)
+9339,8084,ALECRIM CRUZT. - GRANDOLA,,Alecrim Cruzt. - Grandola
+9340,8093,ALVALADE - SANTIAGO CACEM,,Alvalade - Santiago Cacem
+9341,8094,SANTIAGO CACEM - VILA NOVA MILFONTES,,Santiago Cacem - Vila Nova Milfontes
+9342,8099,SANTIAGO CACEM - SINES (Bº.OPERARIO),,Santiago Cacem - Sines (bº.operario)
+9343,8100,ODEMIRA - ZAMBUJEIRA DO MAR,,Odemira - Zambujeira do Mar
+9344,8101,ODEMIRA - ODEMIRA (POR S. TEOTÓNIO),,Odemira - Odemira (via S. Teotónio)
+9345,8106,CRUZ JOAO MENDES - SANTIAGO CACEM,,Cruz Joao Mendes - Santiago Cacem
+9346,8109,SINES - SÃO TORPES - PORTO COVO,,Sines - São Torpes - Porto Covo
+9347,8110,SINES - PRAIA DE SAO TORPES,,Sines - Praia de Sao Torpes
+9348,8111,ALCACER - RIO MOINHOS,,Alcacer - Rio Moinhos
+9349,8112,ODEMIRA - ODEMIRA (POR VN MILFONTES),,Odemira - Odemira (via Vn Milfontes)
+9350,8113,ODEMIRA - SINES - HLA - SANTIAGO,,Odemira - Sines - Hla - Santiago
+9351,8137,CORTE MALHAO - S. MARTINHO AMOREIRAS,,Corte Malhao - S. Martinho Amoreiras
+9352,8148,SINES - TROIA,,Sines - Troia
+9353,8195,CANAL CAVEIRA - GRANDOLA,,Canal Caveira - Grandola
+9354,8197,GRANDOLA - LAGOA MELIDES,,Grandola - Lagoa Melides
+9355,8209,ALCACER SAL - CASEBRES,,Alcacer Sal - Casebres
+9356,8214,SINES - VILA NOVA MILFONTES,,Sines - Vila Nova Milfontes
+9357,8222,ALCACER SAL - VALE GUISO,,Alcacer Sal - Vale Guiso
+9358,8225,ALVALADE - GRANDOLA P/ESC.VISO,,Alvalade - Grandola via Esc.viso
+9359,8228,GRANDOLA - RIO MOINHOS,,Grandola - Rio Moinhos
+9360,8256,GRANDOLA - PEGO,,Grandola - Pego
+9361,8319,ALCACER SAL - TROIA,,Alcacer Sal - Troia
+9362,8328,ALCACER SAL - BAIRRO LARANJAL,,Alcacer Sal - Bairro Laranjal
+9363,8341,SANTIAGO - SINES P/ ST. ANDRE,,Santiago - Sines via St. Andre
+9364,8346,GRANDOLA - TROIA,,Grandola - Troia
+9365,8360,COMPORTA - GRANDOLA,,Comporta - Grandola
+9366,8371,ODEMIRA - SABOIA,,Odemira - Saboia
+9367,8393,S. LUIS - VILA NOVA MILFONTES,,S. Luis - Vila Nova Milfontes
+9368,8411,S. TEOTONIO - S. TEOTONIO (CIRC.),,S. Teotonio - S. Teotonio (circ.)
+9369,8414,ALCACER SAL - MONTE NOVO PALMA,,Alcacer Sal - Monte Novo Palma
+9370,8559,ALCACER DO SAL - LISBOA GARE ORIENTE,,Alcacer do Sal - Lisboa Gare Oriente
+9371,8714,SANTIAGO DO CACEM - SINES,,Santiago do Cacem - Sines
+9372,8784,CERCAL - ODEMIRA P/ FOROS CAIADA,,Cercal - Odemira via Foros Caiada
+9373,8795,CERCAL DO ALENTEJO-COLOS,,Cercal do Alentejo-colos
+9374,8802,SANTIAGO DO CACEM - H.L.A. - SANTO ANDRE,,Santiago do Cacem - H.l.a. - Santo Andre
+9375,8812,SANTIAGO DO CACEM - PORTO COVO,,Santiago do Cacem - Porto Covo
+9376,8827,RELVA GRANDE (ESCOLA) - S. TEOTONIO,,Relva Grande (escola) - S. Teotonio
+9377,8914,SANTIAGO - VALE EGUAS P/ S. DOMINGOS,,Santiago - Vale Eguas via S. Domingos
+9378,8920,ALCACER SAL - SÃO CRISTOVÃO,,Alcacer Sal - São Cristovão
+9379,8922,LAGOA ST. ANDRE - SINES P/ ST. ANDRE,,Lagoa St. Andre - Sines via St. Andre
+9380,8923,ODECEIXE - ODEMIRA - SANTIAGO,,Odeceixe - Odemira - Santiago
+9381,8928,ODEMIRA - TAIPAS MEIO,,Odemira - Taipas Meio
+9382,8939,ALCACER SAL - TORRAO,,Alcacer Sal - Torrao
+9383,8942,ODECEIXE - SANTIAGO,,Odeceixe - Santiago
+9384,8943,SETUBAL - SINES,,Setubal - Sines
+9385,8944,URBANAS - MUNICIPIO DE SINES,,Urbanas - Municipio de Sines
+9386,8947,SABOIA - S. TEOTONIO,,Saboia - S. Teotonio
+9387,8949,SETUBAL - VIDIGUEIRA,,Setubal - Vidigueira
+9388,8954,ODEMIRA - ODEMIRA (CIRCULAÇAO),,Odemira - Odemira (circulaçao)
+9389,8964,CERCAL - ODEMIRA P/V.N.MILFONTES,,Cercal - Odemira via V.n.milfontes
+9390,8993,LUZIANES - SABOIA,,Luzianes - Saboia
+9391,8994,PONTE FONTAINHAS - SANTIAGO CACEM,,Ponte Fontainhas - Santiago Cacem

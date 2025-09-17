@@ -1,0 +1,56 @@
+route_id,route_short_name,route_long_name,route_color,normalized_route_long_name
+9225,1004,LINHA A - URBANA VENDAS NOVAS,,Linha A - Urbana Vendas Novas
+9226,1005,LINHA B - URBANA VENDAS NOVAS,,Linha B - Urbana Vendas Novas
+9227,1006,LINHA C - URBANA VENDAS NOVAS,,Linha C - Urbana Vendas Novas
+9228,1011,JUROMENHA - VILA VICOSA,,Juromenha - Vila Vicosa
+9229,1013,BORBA - ORADA,,Borba - Orada
+9230,1014,BORBA - NORA,,Borba - Nora
+9231,1026,REDONDO - SANTA SUSANA,,Redondo - Santa Susana
+9232,1035,ESTREMOZ - AVIS,,Estremoz - Avis
+9233,1052,EVORA - VIANA DO ALENTEJO,,Évora - Viana do Alentejo
+9234,1076,EVORA - SABUGUEIRO,,Évora - Sabugueiro
+9235,1086,ESTREMOZ - VILA VIÇOSA,,Estremoz - Vila Viçosa
+9236,1095,PORTEL - VERA CRUZ,,Portel - Vera Cruz
+9237,1102,EVORA - REGUENGOS DE MONSARAZ POR MONTOITO,,Évora - Reguengos de Monsaraz via Montoito
+9238,1104,EVORA - ESTREMOZ POR VALE PEREIRO,,Évora - Estremoz via Vale Pereiro
+9239,1136,EVORA - TORRE DE COELHEIROS,,Évora - Torre de Coelheiros
+9240,1145,FOROS AFEITEIRA - VENDAS NOVAS,,Foros Afeiteira - Vendas Novas
+9241,1146,CUBA - EVORA,,Cuba - Évora
+9242,1155,ALDEIA DA SERRA - FOROS,,Aldeia da Serra - Foros
+9243,1157,EVORA - NOSSA SENHORA DE MACHEDE,,Évora - Nossa Senhora de Machede
+9244,1163,ARRAIOLOS - VALE DO PEREIRO,,Arraiolos - Vale do Pereiro
+9245,1164,S. ROMAO - VILA VICOSA,,S. Romao - Vila Vicosa
+9246,1169,ESTREMOZ - EVORAMONTE,,Estremoz - Evoramonte
+9247,1174,MONSARAZ - REGUENGOS DE MONSARAZ,,Monsaraz - Reguengos de Monsaraz
+9248,1178,MONTEMOR-O-NOVO - MORA,,Montemor-o-Novo - Mora
+9249,1190,EVORA - ALCAÇOVAS,,Évora - Alcaçovas
+9250,1201,FREIXO - REDONDO,,Freixo - Redondo
+9251,1202,REDONDO - REGUENGOS DE MONSARAZ,,Redondo - Reguengos de Monsaraz
+9252,1205,ARRAIOLOS - EVORA POR IGREJINHA,,Arraiolos - Évora via Igrejinha
+9253,1292,CORTICADAS DO LAVRE - MONTEMOR,,Corticadas do Lavre - Montemor
+9254,1317,PEROLIVAS - REGUENGOS MONSARAZ,,Perolivas - Reguengos Monsaraz
+9255,1372,REGUENGOS - REGUENGOS POR S MARCOS DO CAMPO,,Reguengos - Reguengos via S Marcos do Campo
+9256,1377,AZARUJA - EVORA POR S. MIGUEL MACHEDE,,Azaruja - Évora via S. Miguel Machede
+9257,1553,EVORA - PORTALEGRE,,Évora - Portalegre
+9258,1782,ALCACER DO SAL - MONTEMOR-O-NOVO POR FOROS BALDIO,,Alcacer do Sal - Montemor-o-Novo via Foros Baldio
+9259,1791,VENDAS NOVAS - VENDAS NOVAS (POR CANHA),,Vendas Novas - Vendas Novas (via Canha)
+9260,1902,AMARELEJA - SETUBAL,,Amareleja - Setubal
+9261,1907,EVORA - EVORA (CIRCULACAO),,Évora - Évora (circulação)
+9262,1912,EVORA - MONTEMOR-O-NOVO POR GUADALUPE,,Évora - Montemor-o-Novo via Guadalupe
+9263,1913,EVORA - MORA,,Évora - Mora
+9264,1916,EVORA - MONTEMOR POR SANTIAGO ESCOURAL,,Évora - Montemor via Santiago Escoural
+9265,1917,ALANDROAL - EVORA,,Alandroal - Évora
+9266,1918,EVORA - MONTES JUNTOS POR REGUENGOS,,Évora - Montes Juntos via Reguengos
+9267,1919,EVORA - AVIS,,Évora - Avis
+9268,1925,LAVRE - VENDAS NOVAS,,Lavre - Vendas Novas
+9269,1930,MONSARAZ - REGUENGOS DE MONSARAZ,,Monsaraz - Reguengos de Monsaraz
+9270,1931,REGUENGOS - VILA VIÇOSA POR M. JUNTOS,,Reguengos - Vila Viçosa via M. Juntos
+9271,1933,MONTEMOR-O-NOVO - VIANA ALENTEJO,,Montemor-o-Novo - Viana Alentejo
+9272,1937,ARRAIOLOS - VALE PEREIRO POR IGREJINHA,,Arraiolos - Vale Pereiro via Igrejinha
+9273,1940,ELVAS - SETUBAL,,Elvas - Setubal
+9274,1941,ESTREMOZ - S.BENTO CORTICO,,Estremoz - S.bento Cortico
+9275,1950,VALONGO - MORA,,Valongo - Mora
+9276,1958,ALDEIA PIAS - VILA VICOSA,,Aldeia Pias - Vila Vicosa
+9277,1975,CABRELA - EVORA POR V. NOVAS,,Cabrela - Évora via V. Novas
+9278,1976,ELVAS - EVORA,,Elvas - Évora
+9279,1997,MOINHO NOVO - VENDAS NOVAS,,Moinho Novo - Vendas Novas
