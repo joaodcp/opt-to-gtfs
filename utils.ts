@@ -23,6 +23,8 @@ const ROUTE_NORMALIZATION_STATIC_REPLACES = {
     "MONTEMOR-O-NOVO": "Montemor-o-Novo",
     CIRCULACAO: "circulação",
     EVORA: "Évora",
+    LOCARIO: "Locário",
+    ANDRE: "André",
 };
 
 export function normalizeRouteName(routeName: string): string {

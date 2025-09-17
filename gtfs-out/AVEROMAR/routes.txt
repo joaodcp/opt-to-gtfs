@@ -1,9 +1,9 @@
 route_id,route_short_name,route_long_name,route_color,normalized_route_long_name
-9332,8023,LAGOA ST. ANDRE - SANTIAGO CACEM,,Lagoa St. Andre - Santiago Cacem
-9333,8028,ALVALADE - FOROS LOCARIO,,Alvalade - Foros Locario
+9332,8023,LAGOA ST. ANDRE - SANTIAGO CACEM,,Lagoa St. André - Santiago Cacem
+9333,8028,ALVALADE - FOROS LOCARIO,,Alvalade - Foros Locário
 9334,8032,BEJA - SINES,,Beja - Sines
 9335,8057,GARVAO - ODEMIRA,,Garvao - Odemira
-9336,8065,LAGOA ST. ANDRE - SANTIAGO P/ST.ANDRE,,Lagoa St. Andre - Santiago via St.andre
+9336,8065,LAGOA ST. ANDRE - SANTIAGO P/ST.ANDRE,,Lagoa St. André - Santiago via St.André
 9337,8074,MONTE ESTRADA - ODEMIRA,,Monte Estrada - Odemira
 9338,8077,CERCAL ALENTEJO - SINES (QTª.PASSARINHOS),,Cercal Alentejo - Sines (qtª.passarinhos)
 9339,8084,ALECRIM CRUZT. - GRANDOLA,,Alecrim Cruzt. - Grandola
@@ -30,7 +30,7 @@ route_id,route_short_name,route_long_name,route_color,normalized_route_long_name
 9360,8256,GRANDOLA - PEGO,,Grandola - Pego
 9361,8319,ALCACER SAL - TROIA,,Alcacer Sal - Troia
 9362,8328,ALCACER SAL - BAIRRO LARANJAL,,Alcacer Sal - Bairro Laranjal
-9363,8341,SANTIAGO - SINES P/ ST. ANDRE,,Santiago - Sines via St. Andre
+9363,8341,SANTIAGO - SINES P/ ST. ANDRE,,Santiago - Sines via St. André
 9364,8346,GRANDOLA - TROIA,,Grandola - Troia
 9365,8360,COMPORTA - GRANDOLA,,Comporta - Grandola
 9366,8371,ODEMIRA - SABOIA,,Odemira - Saboia
@@ -41,12 +41,12 @@ route_id,route_short_name,route_long_name,route_color,normalized_route_long_name
 9371,8714,SANTIAGO DO CACEM - SINES,,Santiago do Cacem - Sines
 9372,8784,CERCAL - ODEMIRA P/ FOROS CAIADA,,Cercal - Odemira via Foros Caiada
 9373,8795,CERCAL DO ALENTEJO-COLOS,,Cercal do Alentejo-colos
-9374,8802,SANTIAGO DO CACEM - H.L.A. - SANTO ANDRE,,Santiago do Cacem - H.l.a. - Santo Andre
+9374,8802,SANTIAGO DO CACEM - H.L.A. - SANTO ANDRE,,Santiago do Cacem - H.l.a. - Santo André
 9375,8812,SANTIAGO DO CACEM - PORTO COVO,,Santiago do Cacem - Porto Covo
 9376,8827,RELVA GRANDE (ESCOLA) - S. TEOTONIO,,Relva Grande (escola) - S. Teotonio
 9377,8914,SANTIAGO - VALE EGUAS P/ S. DOMINGOS,,Santiago - Vale Eguas via S. Domingos
 9378,8920,ALCACER SAL - SÃO CRISTOVÃO,,Alcacer Sal - São Cristovão
-9379,8922,LAGOA ST. ANDRE - SINES P/ ST. ANDRE,,Lagoa St. Andre - Sines via St. Andre
+9379,8922,LAGOA ST. ANDRE - SINES P/ ST. ANDRE,,Lagoa St. André - Sines via St. André
 9380,8923,ODECEIXE - ODEMIRA - SANTIAGO,,Odeceixe - Odemira - Santiago
 9381,8928,ODEMIRA - TAIPAS MEIO,,Odemira - Taipas Meio
 9382,8939,ALCACER SAL - TORRAO,,Alcacer Sal - Torrao
