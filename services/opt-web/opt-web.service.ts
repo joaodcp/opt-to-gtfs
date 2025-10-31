@@ -59,7 +59,7 @@ export class OptWebApiClient {
         };
         const resp = await fetch(url, { ...options, headers });
         if (!resp.ok) {
-            throw new Error(`request failed with ${resp.status}`);
+            throw new Error(`Request failed with status ${resp.status}`);
         }
         return resp.json();
     }
@@ -96,7 +96,11 @@ export class OptWebApiClient {
         const fixedPattern: Pattern = {
             ...unfixedPattern,
             exceptions: unfixedPattern.exceptions.map((e) => {
-                const [id, description] = e.split(")");
+                const dividerIndex = e.indexOf(")");
+                const [id, description] = [
+                    e.slice(0, dividerIndex),
+                    e.slice(dividerIndex + 1),
+                ];
 
                 return {
                     id,
