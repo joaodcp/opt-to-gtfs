@@ -25,6 +25,7 @@ const ROUTE_NORMALIZATION_STATIC_REPLACES = {
     EVORA: "Évora",
     LOCARIO: "Locário",
     ANDRE: "André",
+    "PONTE SOR": "Ponte de Sor",
 };
 
 export function normalizeRouteName(routeName: string): string {
@@ -56,4 +57,50 @@ export function normalizeRouteName(routeName: string): string {
     }
 
     return replaced;
+}
+
+const WEEKDAYS_INDEX_MAP: { [key: string]: number } = {
+    "segunda-feira": 0,
+    segunda: 0,
+    "terça-feira": 1,
+    terça: 1,
+    "quarta-feira": 2,
+    quarta: 2,
+    "quinta-feira": 3,
+    quinta: 3,
+    "sexta-feira": 4,
+    sexta: 4,
+    sábado: 5,
+    domingo: 6,
+};
+
+export function parseCalendarNameToWeekdaysCsvString(
+    calendarName: string
+): string {
+    if (calendarName === "Dias Úteis") return "1,1,1,1,1,0,0";
+
+    if (calendarName.includes(" a ")) {
+        const [startDay, endDay] = calendarName
+            .split(" a ")
+            .map((part) => part.trim().toLowerCase());
+        const startIndex = WEEKDAYS_INDEX_MAP[startDay];
+        const endIndex = WEEKDAYS_INDEX_MAP[endDay];
+        if (startIndex !== undefined && endIndex !== undefined) {
+            const weekdaysArray = Array(7).fill(0);
+            for (let i = startIndex; i <= endIndex; i++) {
+                weekdaysArray[i] = 1;
+            }
+            return weekdaysArray.join(",");
+        }
+    }
+
+    const weekDays = calendarName.split("|").map((part) => part.trim());
+    const weekdaysArray = Array(7).fill(0);
+    for (const day of weekDays) {
+        const index = WEEKDAYS_INDEX_MAP[day.toLowerCase()];
+        if (index !== undefined) {
+            weekdaysArray[index] = 1;
+        }
+    }
+    return weekdaysArray.join(",");
 }
