@@ -1,47 +1,47 @@
-route_id,route_short_name,route_long_name,route_color,normalized_route_long_name
-8738,5012,BEIRA EST. - PORTALEGRE,,Beira Est. - Portalegre
-8739,5015,ELVAS - TERRUGEM (CEMITERIO),,Elvas - Terrugem (Cemitério)
-8740,5029,FRONTEIRA - PONTE DE SOR,,Fronteira - Ponte de Sor
-8741,5035,AVIS - ESTREMOZ,,Avis - Estremoz
-8742,5039,PORTALEGRE - GAVIAO,,Portalegre - Gavião
-8743,5040,CRATO CIRCULAÇÃO,,Crato Circulação
-8744,5044,AMIEIRA COVA - GAVIÃO,,Amieira Cova - Gavião
-8745,5060,BAIRRO DAS PIAS - ELVAS,,Bairro Das Pias - Elvas
-8746,5061,ELVAS - PORTALEGRE,,Elvas - Portalegre
-8747,5068,PORTAGEM - PORTALEGRE,,Portagem - Portalegre
-8748,5069,BARBACENA - ELVAS,,Barbacena - Elvas
-8749,5081,PONTE SOR - TORRE VARGENS,,Ponte Sor - Torre Vargens
-8750,5083,CAMPO MAIOR - ELVAS,,Campo Maior - Elvas
-8751,5091,HORTAS BAIXO - PORTALEGRE,,Hortas Baixo - Portalegre
-8752,5162,GAVIAO - PONTE SOR,,Gavião - Ponte Sor
-8753,5170,MONTALVAO - PORTALEGRE,,Montalvao - Portalegre
-8754,5186,NISA - PORTALEGRE,,Nisa - Portalegre
-8755,5239,PONTE SOR - TRAMAGA,,Ponte Sor - Tramaga
-8756,5241,BELVER - VALE FEITEIRA,,Belver - Vale Feiteira
-8757,5289,AMIEIRA DO TEJO - PORTALEGRE,,Amieira do Tejo - Portalegre
-8758,5313,GALEGOS - PORTALEGRE,,Galegos - Portalegre
-8759,5314,PORTALEGRE - ST. ANTONIO AREIAS P/PONTE VELHA,,Portalegre - St. António Areias via Ponte Velha
-8760,5327,ABRANTES - PONTE SOR,,Abrantes - Ponte Sor
-8761,5330,FALAGUEIRA - NISA,,Falagueira - Nisa
-8762,5331,MONTE ARNEIRO - NISA,,Monte Arneiro - Nisa
-8763,5332,CHAO VELHA - NISA,,Chão Velha - Nisa
-8764,5344,FOROS DO MOCHO - PONTE SOR (EST),,Foros do Mocho - Ponte Sor (est)
-8765,5399,SANTA EULALIA - VILA BOIM,,Santa Eulalia - Vila Boim
-8766,5560,PORTALEGRE - LISBOA GARE ORIENTE (P/PONTE SOR),,Portalegre - Lisboa Gare Oriente (via Ponte Sor)
-8767,5794,FOROS ARRAO - PONTE SOR,,Foros Arrão - Ponte Sor
-8768,5808,ELVAS - SANTO ALEIXO,,Elvas - Santo Aleixo
-8769,5903,BEIRA - PORTALEGRE (P/ M.CARVALHO),,Beira - Portalegre (via M.carvalho)
-8770,5906,NISA - PORTALEGRE P/ TOLOSA,,Nisa - Portalegre via Tolosa
-8771,5935,PORTALEGRE - TOLOSA,,Portalegre - Tolosa
-8772,5936,NISA - CRATO P/GAFETE,,Nisa - Crato via Gafete
-8773,5940,ELVAS - MONTEMOR O NOVO,,Elvas - Montemor-o-Novo
-8774,5945,SAO VICENTE - VILA BOIM,,Sao Vicente - Vila Boim
-8775,5948,CAMPO MAIOR - PORTALEGRE,,Campo Maior - Portalegre
-8776,5951,AVIS - PONTE SOR (P/BENAVILA),,Avis - Ponte Sor (via Benavila)
-8777,5952,PONTE SOR - PORTALEGRE,,Ponte Sor - Portalegre
-8778,5953,ALTER DO CHAO - PORTALEGRE,,Alter do Chão - Portalegre
-8779,5967,ESTREMOZ - MONFORTE P/SANTO ALEIXO,,Estremoz - Monforte via Santo Aleixo
-8780,5968,FRONTEIRA - PORTALEGRE,,Fronteira - Portalegre
-8781,5970,OUGUELA - CAMPO MAIOR,,Ouguela - Campo Maior
-8782,5971,FRONTEIRA - PORTALEGRE (POR ALTER CHAO),,Fronteira - Portalegre (via Alter Chão)
-8783,5973,AVIS - MONTINHO,,Avis - Montinho
+route_id,route_short_name,route_long_name,route_color,route_type,normalized_route_long_name
+8738,5012,BEIRA EST. - PORTALEGRE,,3,Beira Est. - Portalegre
+8739,5015,ELVAS - TERRUGEM (CEMITERIO),,3,Elvas - Terrugem (Cemitério)
+8740,5029,FRONTEIRA - PONTE DE SOR,,3,Fronteira - Ponte de Sor
+8741,5035,AVIS - ESTREMOZ,,3,Avis - Estremoz
+8742,5039,PORTALEGRE - GAVIAO,,3,Portalegre - Gavião
+8743,5040,CRATO CIRCULAÇÃO,,3,Crato Circulação
+8744,5044,AMIEIRA COVA - GAVIÃO,,3,Amieira Cova - Gavião
+8745,5060,BAIRRO DAS PIAS - ELVAS,,3,Bairro Das Pias - Elvas
+8746,5061,ELVAS - PORTALEGRE,,3,Elvas - Portalegre
+8747,5068,PORTAGEM - PORTALEGRE,,3,Portagem - Portalegre
+8748,5069,BARBACENA - ELVAS,,3,Barbacena - Elvas
+8749,5081,PONTE SOR - TORRE VARGENS,,3,Ponte de Sor - Torre Vargens
+8750,5083,CAMPO MAIOR - ELVAS,,3,Campo Maior - Elvas
+8751,5091,HORTAS BAIXO - PORTALEGRE,,3,Hortas Baixo - Portalegre
+8752,5162,GAVIAO - PONTE SOR,,3,Gavião - Ponte de Sor
+8753,5170,MONTALVAO - PORTALEGRE,,3,Montalvao - Portalegre
+8754,5186,NISA - PORTALEGRE,,3,Nisa - Portalegre
+8755,5239,PONTE SOR - TRAMAGA,,3,Ponte de Sor - Tramaga
+8756,5241,BELVER - VALE FEITEIRA,,3,Belver - Vale Feiteira
+8757,5289,AMIEIRA DO TEJO - PORTALEGRE,,3,Amieira do Tejo - Portalegre
+8758,5313,GALEGOS - PORTALEGRE,,3,Galegos - Portalegre
+8759,5314,PORTALEGRE - ST. ANTONIO AREIAS P/PONTE VELHA,,3,Portalegre - St. António Areias via Ponte Velha
+8760,5327,ABRANTES - PONTE SOR,,3,Abrantes - Ponte de Sor
+8761,5330,FALAGUEIRA - NISA,,3,Falagueira - Nisa
+8762,5331,MONTE ARNEIRO - NISA,,3,Monte Arneiro - Nisa
+8763,5332,CHAO VELHA - NISA,,3,Chão Velha - Nisa
+8764,5344,FOROS DO MOCHO - PONTE SOR (EST),,3,Foros do Mocho - Ponte de Sor (est)
+8765,5399,SANTA EULALIA - VILA BOIM,,3,Santa Eulalia - Vila Boim
+8766,5560,PORTALEGRE - LISBOA GARE ORIENTE (P/PONTE SOR),,3,Portalegre - Lisboa Gare Oriente (via Ponte de Sor)
+8767,5794,FOROS ARRAO - PONTE SOR,,3,Foros Arrão - Ponte de Sor
+8768,5808,ELVAS - SANTO ALEIXO,,3,Elvas - Santo Aleixo
+8769,5903,BEIRA - PORTALEGRE (P/ M.CARVALHO),,3,Beira - Portalegre (via M.carvalho)
+8770,5906,NISA - PORTALEGRE P/ TOLOSA,,3,Nisa - Portalegre via Tolosa
+8771,5935,PORTALEGRE - TOLOSA,,3,Portalegre - Tolosa
+8772,5936,NISA - CRATO P/GAFETE,,3,Nisa - Crato via Gafete
+8773,5940,ELVAS - MONTEMOR O NOVO,,3,Elvas - Montemor-o-Novo
+8774,5945,SAO VICENTE - VILA BOIM,,3,Sao Vicente - Vila Boim
+8775,5948,CAMPO MAIOR - PORTALEGRE,,3,Campo Maior - Portalegre
+8776,5951,AVIS - PONTE SOR (P/BENAVILA),,3,Avis - Ponte de Sor (via Benavila)
+8777,5952,PONTE SOR - PORTALEGRE,,3,Ponte de Sor - Portalegre
+8778,5953,ALTER DO CHAO - PORTALEGRE,,3,Alter do Chão - Portalegre
+8779,5967,ESTREMOZ - MONFORTE P/SANTO ALEIXO,,3,Estremoz - Monforte via Santo Aleixo
+8780,5968,FRONTEIRA - PORTALEGRE,,3,Fronteira - Portalegre
+8781,5970,OUGUELA - CAMPO MAIOR,,3,Ouguela - Campo Maior
+8782,5971,FRONTEIRA - PORTALEGRE (POR ALTER CHAO),,3,Fronteira - Portalegre (via Alter Chão)
+8783,5973,AVIS - MONTINHO,,3,Avis - Montinho
