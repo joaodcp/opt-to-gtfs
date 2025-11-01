@@ -4,6 +4,7 @@ import {
     optLinesToGtfsRoutes,
     optPatternsToGtfsStopTimes,
     optPatternToGtfsTrips,
+    optPatternToGtfsTripsAndCalendarDates,
     optStopsToGtfsStops,
 } from "./to-gtfs";
 
@@ -37,6 +38,10 @@ const taaStops = await taaClient.getAllStops();
 
 const taaTrips: string[] = [];
 const taaStopTimes: string[] = [];
+const taaCalendarDates: string[] = [];
+
+const processedServiceIds: string[] = [];
+const processedTripIds: string[] = [];
 
 for (const line of taaLines) {
     console.log(`processing line ${line.id} - ${line.name}`);
@@ -53,16 +58,30 @@ for (const line of taaLines) {
                     direction,
                     cal.schedules
                 );
-                taaTrips.push(
-                    optPatternToGtfsTrips(
-                        "63_4",
-                        line,
-                        direction as "G" | "R",
-                        cal,
-                        pattern,
-                        taaTrips.length === 0
-                    )
+                const [
+                    tripLines,
+                    calendarDatesLines,
+                    currentProcessedTripIds,
+                    currentProcessedServiceIds,
+                ] = optPatternToGtfsTripsAndCalendarDates(
+                    "63_4",
+                    line,
+                    direction as "G" | "R",
+                    cal,
+                    pattern,
+                    taaTrips.length === 0,
+                    processedTripIds,
+                    processedServiceIds
                 );
+
+                processedTripIds.push(...currentProcessedTripIds);
+                processedServiceIds.push(...currentProcessedServiceIds);
+
+                console.log(tripLines);
+
+                taaTrips.push(tripLines);
+                taaCalendarDates.push(calendarDatesLines);
+
                 taaStopTimes.push(
                     optPatternsToGtfsStopTimes(
                         "63_4",
@@ -97,6 +116,11 @@ fs.writeFileSync(
 fs.writeFileSync(
     `gtfs-out/${taaClient.providerName}/stop_times.txt`,
     taaStopTimes.join("\n")
+);
+
+fs.writeFileSync(
+    `gtfs-out/${taaClient.providerName}/calendar_dates.txt`,
+    taaCalendarDates.filter(Boolean).join("\n") // temp fix to avoid empty lines
 );
 
 // const tpacLines = await tpacClient.getLines();

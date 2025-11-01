@@ -26,6 +26,7 @@ const ROUTE_NORMALIZATION_STATIC_REPLACES = {
     LOCARIO: "Locário",
     ANDRE: "André",
     "PONTE SOR": "Ponte de Sor",
+    "S.PEDRO": "S. Pedro",
 };
 
 export function normalizeRouteName(routeName: string): string {

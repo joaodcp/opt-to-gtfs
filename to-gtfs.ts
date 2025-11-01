@@ -49,10 +49,10 @@ export function optPatternToGtfsTrips(
     includeHeader = true
 ): string {
     const header = "route_id,service_id,trip_id,direction_id";
-    const tripLines = pattern.trips.map((tripStops) => {
+    const tripLines = pattern.trips.map((tripSteps) => {
         const directionId = direction === "G" ? 0 : 1;
         const routeId = line.id;
-        const exceptionsDescriptions = tripStops[0].exceptions
+        const exceptionsDescriptions = tripSteps[0].exceptions
             .map(
                 (d) => pattern.exceptions.find((ex) => ex.id === d)?.description
             )
@@ -61,7 +61,9 @@ export function optPatternToGtfsTrips(
         const serviceId = exceptionsDescriptions
             ? `${calendar.name} (${exceptionsDescriptions})`
             : calendar.name;
-        const tripId = `${tripPrefix}_${line.code}_${directionId}_${tripStops[0].time}`;
+        const tripId = `${tripPrefix}_${line.code}_${directionId}_${
+            tripSteps.length
+        }_${tripSteps[0].time}_${tripSteps[tripSteps.length - 1].time}`;
 
         return `${routeId},${optServiceNameToGtfsCalendarId(
             serviceId
@@ -73,6 +75,81 @@ export function optPatternToGtfsTrips(
     }
 
     return [header, ...tripLines].join("\n");
+}
+
+export function optPatternToGtfsTripsAndCalendarDates(
+    tripPrefix: string,
+    line: Line,
+    direction: "G" | "R",
+    calendar: Calendar,
+    pattern: Pattern,
+    includeHeader = true,
+    processedTripIds: string[],
+    processedServiceIds: string[]
+): [string, string, string[], string[]] {
+    const calendarDatesLines: string[] = [];
+    const calendarDatesHeader = "service_id,date,exception_type";
+    const currentProcessedServiceIds = new Set<string>();
+    const currentProcessedTripIds = new Set<string>();
+
+    const tripsHeader = "route_id,service_id,trip_id,direction_id";
+    const tripLines = pattern.trips.map((tripSteps) => {
+        const directionId = direction === "G" ? 0 : 1;
+        const routeId = line.id;
+        const exceptionsDescriptions = tripSteps[0].exceptions
+            .map(
+                (d) => pattern.exceptions.find((ex) => ex.id === d)?.description
+            )
+            .filter((desc) => desc)
+            .join(";");
+        const optServiceName = exceptionsDescriptions
+            ? `${calendar.name} (${exceptionsDescriptions})`
+            : calendar.name;
+        const serviceId = optServiceNameToGtfsCalendarId(optServiceName);
+        const tripId = `${tripPrefix}_${serviceId}_${
+            line.code
+        }_${directionId}_${tripSteps.length}_${tripSteps[0].time}_${
+            tripSteps[tripSteps.length - 1].time
+        }`;
+
+        // avoid processing the same service more than once
+        if (
+            !processedServiceIds.includes(serviceId) &&
+            !currentProcessedServiceIds.has(serviceId)
+        ) {
+            currentProcessedServiceIds.add(serviceId);
+            const exceptions = getExceptionsForServiceId(serviceId, false);
+            if (exceptions.length > 0) {
+                calendarDatesLines.push(...exceptions);
+            }
+        }
+
+        // avoid processing the same trip more than once
+        if (
+            !processedTripIds.includes(tripId) &&
+            !currentProcessedTripIds.has(tripId)
+        ) {
+            currentProcessedTripIds.add(tripId);
+        }
+
+        return `${routeId},${serviceId},${tripId},${directionId}`;
+    });
+
+    if (!includeHeader) {
+        return [
+            tripLines.join("\n"),
+            calendarDatesLines.join("\n"),
+            Array.from(currentProcessedTripIds),
+            Array.from(currentProcessedServiceIds),
+        ];
+    }
+
+    return [
+        [tripsHeader, ...tripLines].join("\n"),
+        [calendarDatesHeader, ...calendarDatesLines].join("\n"),
+        Array.from(currentProcessedTripIds),
+        Array.from(currentProcessedServiceIds),
+    ];
 }
 
 export function optPatternsToGtfsStopTimes(
@@ -88,11 +165,23 @@ export function optPatternsToGtfsStopTimes(
     const stopTimeLines: string[] = [];
 
     const directionId = direction === "G" ? 0 : 1;
-    const routeId = line.id;
-    const serviceId = calendar.name;
 
     pattern.trips.forEach((tripSteps) => {
-        const tripId = `${tripPrefix}_${line.code}_${directionId}_${tripSteps[0].time}`;
+        const exceptionsDescriptions = tripSteps[0].exceptions
+            .map(
+                (d) => pattern.exceptions.find((ex) => ex.id === d)?.description
+            )
+            .filter((desc) => desc)
+            .join(";");
+        const optServiceName = exceptionsDescriptions
+            ? `${calendar.name} (${exceptionsDescriptions})`
+            : calendar.name;
+        const serviceId = optServiceNameToGtfsCalendarId(optServiceName);
+        const tripId = `${tripPrefix}_${serviceId}_${
+            line.code
+        }_${directionId}_${tripSteps.length}_${tripSteps[0].time}_${
+            tripSteps[tripSteps.length - 1].time
+        }`;
 
         tripSteps.forEach((stopTime, index) => {
             const arrivalTime = `${stopTime.time}:00`;
@@ -198,4 +287,69 @@ export function optServiceNameToGtfsCalendarId(serviceName: string): string {
     }
 
     return `"${serviceName}"`;
+}
+
+const DATE_RANGES_BY_SERVICE_ID_PARTS: Record<
+    string,
+    (
+        | { range: [string, string]; type: number }
+        | { date: string; type: number }
+    )[]
+> = {
+    XAGO: [{ range: ["20250801", "20250831"], type: 2 }],
+    ESC: [
+        { range: ["20251222", "20260104"], type: 2 },
+        { range: ["20260216", "20260217"], type: 2 },
+        { range: ["20260330", "20260409"], type: 2 },
+        { range: ["20260614", "20260910"], type: 2 },
+    ],
+    FER: [
+        { range: ["20250911", "20251215"], type: 2 },
+        { range: ["20250105", "20250216"], type: 2 },
+        { range: ["20250218", "20250429"], type: 2 },
+        { range: ["20260410", "20260612"], type: 2 },
+    ],
+    XFMPTG: [{ date: "20260523", type: 2 }],
+    XFMELV: [{ date: "20260114", type: 2 }],
+};
+
+export function getExceptionsForServiceId(
+    serviceId: string,
+    includeHeader: boolean = true
+): string[] {
+    const lines: string[] = [];
+    if (includeHeader) lines.push("service_id,date,exception_type");
+
+    for (const [part, entries] of Object.entries(
+        DATE_RANGES_BY_SERVICE_ID_PARTS
+    )) {
+        if (!serviceId.includes(part)) continue;
+
+        for (const entry of entries) {
+            if ("date" in entry) {
+                lines.push(`${serviceId},${entry.date},${entry.type}`);
+            } else if ("range" in entry) {
+                const [start, end] = entry.range;
+                const cur = new Date(
+                    `${start.slice(0, 4)}-${start.slice(4, 6)}-${start.slice(
+                        6,
+                        8
+                    )}`
+                );
+                const endDate = new Date(
+                    `${end.slice(0, 4)}-${end.slice(4, 6)}-${end.slice(6, 8)}`
+                );
+
+                while (cur <= endDate) {
+                    const y = cur.getFullYear();
+                    const m = String(cur.getMonth() + 1).padStart(2, "0");
+                    const d = String(cur.getDate()).padStart(2, "0");
+                    lines.push(`${serviceId},${y}${m}${d},${entry.type}`);
+                    cur.setDate(cur.getDate() + 1);
+                }
+            }
+        }
+    }
+
+    return lines;
 }
