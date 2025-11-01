@@ -24,7 +24,7 @@ export function optStopsToGtfsStops(stops: Stop[]): string {
 
 export function optLinesToGtfsRoutes(lines: Line[], routeType: string): string {
     const header =
-        "route_id,route_short_name,route_long_name,route_color,route_type,normalized_route_long_name";
+        "route_id,route_short_name,route_long_name,route_color,route_type,original_route_long_name";
     const routeLines = lines.map((line) => {
         const routeId = line.id;
         const routeShortName = line.code;
@@ -32,9 +32,9 @@ export function optLinesToGtfsRoutes(lines: Line[], routeType: string): string {
         const routeColor = line.lineColorFormatted
             ? toHexColor(line.lineColorFormatted)
             : "";
-        const normalized_route_long_name = normalizeRouteName(routeLongName);
+        const normalizedRouteLongName = normalizeRouteName(routeLongName);
 
-        return `${routeId},${routeShortName},${routeLongName},${routeColor},${routeType},${normalized_route_long_name}`;
+        return `${routeId},${routeShortName},${normalizedRouteLongName},${routeColor},${routeType},${routeLongName}`;
     });
 
     return [header, ...routeLines].join("\n");
@@ -93,47 +93,53 @@ export function optPatternToGtfsTripsAndCalendarDates(
     const currentProcessedTripIds = new Set<string>();
 
     const tripsHeader = "route_id,service_id,trip_id,direction_id";
-    const tripLines = pattern.trips.map((tripSteps) => {
-        const directionId = direction === "G" ? 0 : 1;
-        const routeId = line.id;
-        const exceptionsDescriptions = tripSteps[0].exceptions
-            .map(
-                (d) => pattern.exceptions.find((ex) => ex.id === d)?.description
-            )
-            .filter((desc) => desc)
-            .join(";");
-        const optServiceName = exceptionsDescriptions
-            ? `${calendar.name} (${exceptionsDescriptions})`
-            : calendar.name;
-        const serviceId = optServiceNameToGtfsCalendarId(optServiceName);
-        const tripId = `${tripPrefix}_${serviceId}_${
-            line.code
-        }_${directionId}_${tripSteps.length}_${tripSteps[0].time}_${
-            tripSteps[tripSteps.length - 1].time
-        }`;
+    const tripLines = pattern.trips
+        .map((tripSteps) => {
+            const directionId = direction === "G" ? 0 : 1;
+            const routeId = line.id;
+            const exceptionsDescriptions = tripSteps[0].exceptions
+                .map(
+                    (d) =>
+                        pattern.exceptions.find((ex) => ex.id === d)
+                            ?.description
+                )
+                .filter((desc) => desc)
+                .join(";");
+            const optServiceName = exceptionsDescriptions
+                ? `${calendar.name} (${exceptionsDescriptions})`
+                : calendar.name;
+            const serviceId = optServiceNameToGtfsCalendarId(optServiceName);
+            const tripId = `${tripPrefix}_${serviceId}_${
+                line.code
+            }_${directionId}_${tripSteps.length}_${tripSteps[0].time}_${
+                tripSteps[tripSteps.length - 1].time
+            }`;
 
-        // avoid processing the same service more than once
-        if (
-            !processedServiceIds.includes(serviceId) &&
-            !currentProcessedServiceIds.has(serviceId)
-        ) {
-            currentProcessedServiceIds.add(serviceId);
-            const exceptions = getExceptionsForServiceId(serviceId, false);
-            if (exceptions.length > 0) {
-                calendarDatesLines.push(...exceptions);
+            // avoid processing the same service more than once
+            if (
+                !processedServiceIds.includes(serviceId) &&
+                !currentProcessedServiceIds.has(serviceId)
+            ) {
+                currentProcessedServiceIds.add(serviceId);
+                const exceptions = getExceptionsForServiceId(serviceId, false);
+                if (exceptions.length > 0) {
+                    calendarDatesLines.push(...exceptions);
+                }
             }
-        }
 
-        // avoid processing the same trip more than once
-        if (
-            !processedTripIds.includes(tripId) &&
-            !currentProcessedTripIds.has(tripId)
-        ) {
-            currentProcessedTripIds.add(tripId);
-        }
+            // avoid processing the same trip more than once
+            if (
+                !processedTripIds.includes(tripId) &&
+                !currentProcessedTripIds.has(tripId)
+            ) {
+                currentProcessedTripIds.add(tripId);
+            } else {
+                return null;
+            }
 
-        return `${routeId},${serviceId},${tripId},${directionId}`;
-    });
+            return `${routeId},${serviceId},${tripId},${directionId}`;
+        })
+        .filter(Boolean);
 
     if (!includeHeader) {
         return [
@@ -158,11 +164,14 @@ export function optPatternsToGtfsStopTimes(
     direction: "G" | "R",
     calendar: Calendar,
     pattern: Pattern,
-    includeHeader = true
-): string {
+    includeHeader = true,
+    processedTripIds: string[]
+): [string, string[]] {
     const header =
         "trip_id,arrival_time,departure_time,stop_id,stop_sequence,timepoint";
     const stopTimeLines: string[] = [];
+
+    const currentProcessedTripIds = new Set<string>();
 
     const directionId = direction === "G" ? 0 : 1;
 
@@ -183,6 +192,16 @@ export function optPatternsToGtfsStopTimes(
             tripSteps[tripSteps.length - 1].time
         }`;
 
+        // skip already processed trips
+        if (
+            !processedTripIds.includes(tripId) &&
+            !currentProcessedTripIds.has(tripId)
+        ) {
+            currentProcessedTripIds.add(tripId);
+        } else {
+            return;
+        }
+
         tripSteps.forEach((stopTime, index) => {
             const arrivalTime = `${stopTime.time}:00`;
             const departureTime = `${stopTime.time}:00`;
@@ -198,9 +217,12 @@ export function optPatternsToGtfsStopTimes(
     });
 
     if (!includeHeader) {
-        return stopTimeLines.join("\n");
+        return [stopTimeLines.join("\n"), Array.from(currentProcessedTripIds)];
     }
-    return [header, ...stopTimeLines].join("\n");
+    return [
+        [header, ...stopTimeLines].join("\n"),
+        Array.from(currentProcessedTripIds),
+    ];
 }
 
 const CALENDAR_ID_MAPPINGS = {
@@ -254,7 +276,7 @@ const CALENDAR_ID_MAPPINGS = {
     "Dias Úteis (Apenas Quarta-Feira)": "4",
 
     "Quinta-Feira | Sexta-Feira | Domingo (2f Pas, 3f car, 6s.,Dom, 2f se F 5 se vesp F)":
-        "56-DOM-R5660",
+        "56DOM-2P-3C-5560",
 };
 
 // export function optServiceNameToGtfsCalendarId(serviceName: string): string {
@@ -311,6 +333,27 @@ const DATE_RANGES_BY_SERVICE_ID_PARTS: Record<
     ],
     XFMPTG: [{ date: "20260523", type: 2 }],
     XFMELV: [{ date: "20260114", type: 2 }],
+
+    // STAA specific (route 5560)
+    // Se 6ª feira for Feriado, esta circulação realiza-se no dia útil anterior (5ª feira).
+    // Se 2ª feira for Feriado, a circulação de Domingo realiza-se antes à 2ª feira.
+    // Esta circulação realiza-se na 2ª feira de Páscoa e na 3ª feira de Carnaval.
+    "56DOM-2P-3C-5560": [
+        { date: "20251130", type: 2 }, // vespera rest ind
+        { date: "20251201", type: 1 }, // feriado: restauracao indep, 2a f
+
+        { date: "20251207", type: 2 }, // vespera imaculada conceicao
+        { date: "20251208", type: 1 }, // feriado: imaculada conceicao, 2a f
+
+        { date: "20260402", type: 1 }, // vespera 6ª feira santa
+        { date: "20260403", type: 2 }, // 6ª feira santa
+
+        { date: "20260430", type: 1 }, // vespera dia do trabalhador
+        { date: "20260501", type: 2 }, // feriado: dia do trabalhador, 6a f
+
+        { date: "20260217", type: 1 }, // 3ª feira de Carnaval
+        { date: "20260406", type: 1 }, // 2ª feira de Páscoa
+    ],
 };
 
 export function getExceptionsForServiceId(

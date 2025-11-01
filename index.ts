@@ -42,6 +42,7 @@ const taaCalendarDates: string[] = [];
 
 const processedServiceIds: string[] = [];
 const processedTripIds: string[] = [];
+const processedTripIdsOnStopTimes: string[] = [];
 
 for (const line of taaLines) {
     console.log(`processing line ${line.id} - ${line.name}`);
@@ -82,16 +83,20 @@ for (const line of taaLines) {
                 taaTrips.push(tripLines);
                 taaCalendarDates.push(calendarDatesLines);
 
-                taaStopTimes.push(
+                const [stopTimeLines, newlyProcessedTripIds] =
                     optPatternsToGtfsStopTimes(
                         "63_4",
                         line,
                         direction as "G" | "R",
                         cal,
                         pattern,
-                        taaStopTimes.length === 0
-                    )
-                );
+                        taaStopTimes.length === 0,
+                        processedTripIdsOnStopTimes
+                    );
+
+                processedTripIdsOnStopTimes.push(...newlyProcessedTripIds);
+
+                taaStopTimes.push(stopTimeLines);
             }
         })
     );
@@ -110,7 +115,7 @@ for (const line of taaLines) {
 
 fs.writeFileSync(
     `gtfs-out/${taaClient.providerName}/trips.txt`,
-    taaTrips.join("\n")
+    taaTrips.filter(Boolean).join("\n") // temp fix to avoid empty lines
 );
 
 fs.writeFileSync(
@@ -118,10 +123,10 @@ fs.writeFileSync(
     taaStopTimes.join("\n")
 );
 
-fs.writeFileSync(
-    `gtfs-out/${taaClient.providerName}/calendar_dates.txt`,
-    taaCalendarDates.filter(Boolean).join("\n") // temp fix to avoid empty lines
-);
+// fs.writeFileSync(
+//     `gtfs-out/${taaClient.providerName}/calendar_dates.txt`,
+//     taaCalendarDates.filter(Boolean).join("\n") // temp fix to avoid empty lines
+// );
 
 // const tpacLines = await tpacClient.getLines();
 
