@@ -7,6 +7,7 @@ import {
     optPatternToGtfsTripsAndCalendarDates,
     optStopsToGtfsStops,
 } from "./to-gtfs";
+import { cleanupDuplicateLines } from "./utils";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const ROUTE_TYPE_BUS = "3";
@@ -44,88 +45,88 @@ const processedServiceIds: string[] = [];
 const processedTripIds: string[] = [];
 const processedTripIdsOnStopTimes: string[] = [];
 
-for (const line of taaLines) {
-    console.log(`processing line ${line.id} - ${line.name}`);
+// for (const line of taaLines) {
+//     console.log(`processing line ${line.id} - ${line.name}`);
 
-    await Promise.all(
-        line.directions.map(async (direction) => {
-            console.log(
-                `processing direction ${direction} for line ${line.id}`
-            );
-            const calendars = await taaClient.getCalendars(line.id);
-            for (const cal of calendars) {
-                const pattern = await taaClient.getPattern(
-                    line.id,
-                    direction,
-                    cal.schedules
-                );
-                const [
-                    tripLines,
-                    calendarDatesLines,
-                    currentProcessedTripIds,
-                    currentProcessedServiceIds,
-                ] = optPatternToGtfsTripsAndCalendarDates(
-                    "63_4",
-                    line,
-                    direction as "G" | "R",
-                    cal,
-                    pattern,
-                    taaTrips.length === 0,
-                    processedTripIds,
-                    processedServiceIds
-                );
+//     await Promise.all(
+//         line.directions.map(async (direction) => {
+//             console.log(
+//                 `processing direction ${direction} for line ${line.id}`
+//             );
+//             const calendars = await taaClient.getCalendars(line.id);
+//             for (const cal of calendars) {
+//                 const pattern = await taaClient.getPattern(
+//                     line.id,
+//                     direction,
+//                     cal.schedules
+//                 );
+//                 const [
+//                     tripLines,
+//                     calendarDatesLines,
+//                     currentProcessedTripIds,
+//                     currentProcessedServiceIds,
+//                 ] = optPatternToGtfsTripsAndCalendarDates(
+//                     "63_4",
+//                     line,
+//                     direction as "G" | "R",
+//                     cal,
+//                     pattern,
+//                     taaTrips.length === 0,
+//                     processedTripIds,
+//                     processedServiceIds
+//                 );
 
-                processedTripIds.push(...currentProcessedTripIds);
-                processedServiceIds.push(...currentProcessedServiceIds);
+//                 processedTripIds.push(...currentProcessedTripIds);
+//                 processedServiceIds.push(...currentProcessedServiceIds);
 
-                console.log(tripLines);
+//                 console.log(tripLines);
 
-                taaTrips.push(tripLines);
-                taaCalendarDates.push(calendarDatesLines);
+//                 taaTrips.push(tripLines);
+//                 taaCalendarDates.push(calendarDatesLines);
 
-                const [stopTimeLines, newlyProcessedTripIds] =
-                    optPatternsToGtfsStopTimes(
-                        "63_4",
-                        line,
-                        direction as "G" | "R",
-                        cal,
-                        pattern,
-                        taaStopTimes.length === 0,
-                        processedTripIdsOnStopTimes
-                    );
+//                 const [stopTimeLines, newlyProcessedTripIds] =
+//                     optPatternsToGtfsStopTimes(
+//                         "63_4",
+//                         line,
+//                         direction as "G" | "R",
+//                         cal,
+//                         pattern,
+//                         taaStopTimes.length === 0,
+//                         processedTripIdsOnStopTimes
+//                     );
 
-                processedTripIdsOnStopTimes.push(...newlyProcessedTripIds);
+//                 processedTripIdsOnStopTimes.push(...newlyProcessedTripIds);
 
-                taaStopTimes.push(stopTimeLines);
-            }
-        })
-    );
+//                 taaStopTimes.push(stopTimeLines);
+//             }
+//         })
+//     );
 
-    await sleep(1000);
-}
+//     await sleep(1000);
+// }
 
-// fs.writeFileSync(
-//     `gtfs-out/${taaClient.providerName}/routes.txt`,
-//     optLinesToGtfsRoutes(taaLines, ROUTE_TYPE_BUS)
-// );
+fs.writeFileSync(
+    `gtfs-out/${taaClient.providerName}/routes.txt`,
+    optLinesToGtfsRoutes(taaLines, "STAA", ROUTE_TYPE_BUS, "5fb4f9", "ffffff")
+);
 // fs.writeFileSync(
 //     `gtfs-out/${taaClient.providerName}/stops.txt`,
 //     optStopsToGtfsStops(taaStops)
 // );
 
-fs.writeFileSync(
-    `gtfs-out/${taaClient.providerName}/trips.txt`,
-    taaTrips.filter(Boolean).join("\n") // temp fix to avoid empty lines
-);
+// fs.writeFileSync(
+//     `gtfs-out/${taaClient.providerName}/trips.txt`,
+//     taaTrips.filter(Boolean).join("\n") // temp fix to avoid empty lines
+// );
 
-fs.writeFileSync(
-    `gtfs-out/${taaClient.providerName}/stop_times.txt`,
-    taaStopTimes.join("\n")
-);
+// fs.writeFileSync(
+//     `gtfs-out/${taaClient.providerName}/stop_times.txt`,
+//     taaStopTimes.join("\n")
+// );
 
 // fs.writeFileSync(
 //     `gtfs-out/${taaClient.providerName}/calendar_dates.txt`,
-//     taaCalendarDates.filter(Boolean).join("\n") // temp fix to avoid empty lines
+//     cleanupDuplicateLines(taaCalendarDates.filter(Boolean)).join("\n") // temp fix to avoid empty lines
 // );
 
 // const tpacLines = await tpacClient.getLines();

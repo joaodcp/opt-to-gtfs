@@ -22,9 +22,15 @@ export function optStopsToGtfsStops(stops: Stop[]): string {
     return [header, ...lines].join("\n");
 }
 
-export function optLinesToGtfsRoutes(lines: Line[], routeType: string): string {
+export function optLinesToGtfsRoutes(
+    lines: Line[],
+    agencyId: string,
+    routeType: string,
+    defaultRouteColor: string = "",
+    defaultRouteTextColor: string = ""
+): string {
     const header =
-        "route_id,route_short_name,route_long_name,route_color,route_type,original_route_long_name";
+        "route_id,agency_id,route_short_name,route_long_name,route_color,route_type,route_color,route_text_color,original_route_long_name";
     const routeLines = lines.map((line) => {
         const routeId = line.id;
         const routeShortName = line.code;
@@ -34,7 +40,7 @@ export function optLinesToGtfsRoutes(lines: Line[], routeType: string): string {
             : "";
         const normalizedRouteLongName = normalizeRouteName(routeLongName);
 
-        return `${routeId},${routeShortName},${normalizedRouteLongName},${routeColor},${routeType},${routeLongName}`;
+        return `${routeId},${agencyId},${routeShortName},${normalizedRouteLongName},${routeColor},${routeType},${defaultRouteColor},${defaultRouteTextColor},${routeLongName}`;
     });
 
     return [header, ...routeLines].join("\n");
@@ -276,7 +282,7 @@ const CALENDAR_ID_MAPPINGS = {
     "Dias Úteis (Apenas Quarta-Feira)": "4",
 
     "Quinta-Feira | Sexta-Feira | Domingo (2f Pas, 3f car, 6s.,Dom, 2f se F 5 se vesp F)":
-        "56DOM-2P-3C-5560",
+        "56DOM-2P-3C",
 };
 
 // export function optServiceNameToGtfsCalendarId(serviceName: string): string {
