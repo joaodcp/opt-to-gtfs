@@ -27,6 +27,8 @@ const ROUTE_NORMALIZATION_STATIC_REPLACES = {
     ANDRE: "André",
     "PONTE SOR": "Ponte de Sor",
     "S.PEDRO": "S. Pedro",
+    "M.CARVALHO": "Monte Carvalho",
+    MONTALVAO: "Montalvão",
 };
 
 export function normalizeRouteName(routeName: string): string {
@@ -104,4 +106,18 @@ export function parseCalendarNameToWeekdaysCsvString(
         }
     }
     return weekdaysArray.join(",");
+}
+
+export function cleanupDuplicateLines(lines: string[]): string[] {
+    const seen = new Set<string>();
+    const result: string[] = [];
+
+    for (const line of lines) {
+        if (!seen.has(line)) {
+            seen.add(line);
+            result.push(line);
+        }
+    }
+
+    return result;
 }
